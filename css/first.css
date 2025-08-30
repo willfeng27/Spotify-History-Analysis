@@ -1,0 +1,45 @@
+body {
+    background: #1DB954;
+    font: 2em Helvetica;
+    text-align: center;
+}
+
+div {
+    padding: 1em;
+    max-width: 100%
+}
+
+.outerBox {
+    height: 3em;
+    border: 0.25em solid #317843;
+    border-radius: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+}
+
+.innerBox {
+    border: 0.125em solid #317843;
+    border-radius: 1em;
+    padding: 1em;
+    width: 15em;
+
+    background: #1DB954;
+}
+
+.mainTitle {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.homeLink {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
+}
