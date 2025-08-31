@@ -1,0 +1,89 @@
+.first {
+    background: #1DB954;
+    font: 2em Helvetica;
+    text-align: center;
+}
+
+div {
+    padding: 1em;
+    max-width: 100%
+}
+
+.outerBox {
+    height: 3em;
+    border: 0.25em solid #317843;
+    border-radius: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+}
+
+.innerBox {
+    border: 0.125em solid #317843;
+    border-radius: 1em;
+    padding: 1em;
+    width: 15em;
+
+    background: #1DB954;
+}
+
+.mainTitle {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.homeLink {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+/* this is a comment */
+h1 {
+    font-family: 'Helvetica';
+    color: white;
+    background-color: #333
+}
+
+p {
+    color: purple;
+    font-style: italic;
+    border: 3px dashed red;
+}
+
+img {
+    max-width: 300px;
+}
+
+.highlightedNoCap {
+    background-color: yellow;
+}
+
+.fard {
+    color: green;
+}
+
+/* inherited property values */
+/* note... "if a rule explicitly specifies a property's value, that value will be used... 
+instead of any INHERITED value */
+/* styling classes are not inherited */
+/* class selectors are considered more specific than type selectors, priority */
+
+
+ul {
+    font-size: larger;
+}
+
+li {
+    color: teal;
+}
+
+footer {
+    background-color: green;
+}
