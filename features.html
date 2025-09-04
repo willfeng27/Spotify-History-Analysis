@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="William Feng and Cameron Roper">
+        <meta name="description" content="Analyzing your Spotify history">
+        <title>Spotify History Analysis Tools</title>
+        <link rel="stylesheet" href="css\style.css">
+    </head>
+
+    <body class="features">
+
+        <div class="featuresHead">
+            <h1 class="featuresHeadText">Spotify History Analysis Tools</h1>
+            <h4><a href="first.html">Home Page</a></h4>
+        </div>
+
+        <div class="featureSettings2">
+            <div class="radioDiv">
+                <input type="radio" id="song" name="analyze" value="songListeningHistory" class="checkOrRadio" checked >
+                <label for="song">Analyze song listening history</label>
+            </div>
+            <div class="radioDiv">
+                <input type="radio" id="podcast" name="analyze" value="pCastListeningHistory" class="checkOrRadio">
+                <label for="song">Analyze podcast listening history</label>
+            </div>
+            <div class="radioDiv">
+                <input type="radio" id="audiobook" name="analyze" value="aBookListeningHistory" class="checkOrRadio">
+                <label for="song">Analyze audiobook listening history</label>
+            </div>
+        </div>
+
+        <!-- working on stuff below -->
+
+        <div class="belowSettings">
+            <div class="options">
+                <h2>- Settings -</h2>
+
+                <div class="settingsDiv">
+                    <input type="checkbox" id="option1" name="option1" value="includeSkippedPlays" class="checkOrRadio">
+                    <label for="option1">Include skipped plays</label>
+                </div>
+                <div class="settingsDiv">
+                    <input type="checkbox" id="option2" name="option2" value="caseSensitive" class="checkOrRadio">
+                    <label for="option2">Case-sensitive searches</label>
+                </div>
+                <div class="settingsDiv">
+                    <label for="startDate">Starting date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    <input type="submit">
+                </div>
+                <div class="settingsDiv">
+                    <label for="endDate">Ending date:</label>
+                    <input type="date" id="endDate" name="endDate">
+                    <input type="submit">
+                </div>
+
+                <button>Update settings</button>
+
+            </div>
+
+            <div class="body"> 
+                <h2>Summary</h2>
+                <ul class="bodyList">
+                    <li>Your most-played song & how many plays: <em>Insert Here</em></li>
+                    <li>Your most-played artist & how many artists: <em>Insert Here</em></li>
+                    <li>Percentage skipped: <em>Insert Here</em></li>
+                </ul>
+                <h2>Song-specific tools</h2>
+                <ul class="bodyList">
+                    <li>Find the number of plays for a song with a particular title</li>
+                    <li>Displaying your top _ most played songs</li>
+                </ul>
+                <h2>Artist-specific tools</h2>
+                <ul class="bodyList">
+                    <li>Find the number of plays for songs with a particular artist</li>
+                    <li>Displaying your top _ most played artists</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="belowOptions">
+            <div class="fileManagement">
+                <h2>- File Management -</h2>
+                <div class="fileButtons"> 
+                    <button>Add another JSON file to the analysis pool</button>
+                    <button>Remove a JSON file from the analysis pool</button>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+    <div>
+        <footer>
+            <em>Website created by 
+                <a href="https://github.com/willfeng27">William Feng</a>
+                and 
+                <a href="https://github.com/cjroper212">Cameron Roper</a>
+            </em>
+        </footer>
+    </div>
+
+</html>
