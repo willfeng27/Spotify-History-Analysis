@@ -1,3 +1,5 @@
+/* NONSENSE vvv */
+
 .first {
     background: #1DB954;
     font: 2em Helvetica;
@@ -40,6 +42,10 @@ div {
     color: white;
 }
 
+a {
+    color: white;
+}
+
 a:hover {
     color: lightgrey;
 }
@@ -75,15 +81,131 @@ instead of any INHERITED value */
 /* styling classes are not inherited */
 /* class selectors are considered more specific than type selectors, priority */
 
-
-ul {
-    font-size: larger;
+footer {
+    background-color: green;
 }
 
-li {
-    color: teal;
+/* NONSENSE ^^^ */
+
+/* features */
+
+.features {
+    background: #212121;
+    color: white;
+    padding: 1em;
+}
+
+.featuresHead {
+    background: #1DB954;
+    border: 0.5em solid #1DB954;
+    border-radius: 1.5em;
+    font: 1.5em Helvetica;
+    text-align: center;
+}
+
+.featuresHead:hover {
+    border: 0.5em solid white;
+}
+
+.featuresHeadText {
+    background: #1DB954;
+    color: white;
+}
+
+.checkOrRadio {
+    accent-color: #1DB954;
+}
+
+.featureSettings2 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.radioDiv {
+    background: rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+}
+
+.radioDiv:hover {
+    background:grey;
+}
+
+.options {
+    background: rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 20%;
+}
+
+.body {
+    background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 70%;
+}
+
+.body:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.settingsDiv {
+    text-align: left;
+}
+
+.belowSettings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options {
+    border: 0.5em solid rgb(72, 72, 72);
+}
+
+.options:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.bodyList {
+    color: white;
+    list-style-position: inside;
+}
+
+.belowOptions {
+    display: flex;
+    justify-content: center;
+}
+
+.fileManagement {
+    background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 90%;
+}
+
+.fileManagement:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.fileButtons {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 footer {
-    background-color: green;
+    background: #1DB954;
+    border: 0.25em solid #1DB954;
+    border-radius: 1em;
+    font: 1.5em Helvetica;
+    padding: 0.75em;
+    text-align: center;  
+}
+
+footer:hover {
+    border: 0.25em solid white;
 }
