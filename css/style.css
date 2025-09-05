@@ -1,14 +1,37 @@
-/* NONSENSE vvv */
+/* ELEMENTS */
 
-.first {
-    background: #1DB954;
-    font: 2em Helvetica;
-    text-align: center;
+a {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
 }
 
 div {
     padding: 1em;
     max-width: 100%
+}
+
+footer {
+    background: #1DB954;
+    border: 0.25em solid #1DB954;
+    border-radius: 1em;
+    font: 1.5em Helvetica;
+    padding: 0.75em;
+    text-align: center;  
+}
+
+footer:hover {
+    border: 0.25em solid white;
+}
+
+/* HOME PAGE (by William) */
+
+.first {
+    background: #1DB954;
+    font: 2em Helvetica;
+    text-align: center;
 }
 
 .outerBox {
@@ -38,31 +61,13 @@ div {
     font-style: italic;
 }
 
-.homeLink {
-    color: white;
+.nav-links {
+  margin-left: 1.25rem;
+  text-decoration: none;
+  transition: all 0.25s ease-out;
 }
 
-a {
-    color: white;
-}
-
-a:hover {
-    color: lightgrey;
-}
-
-/* inherited property values */
-/* note... "if a rule explicitly specifies a property's value, that value will be used... 
-instead of any INHERITED value */
-/* styling classes are not inherited */
-/* class selectors are considered more specific than type selectors, priority */
-
-footer {
-    background-color: green;
-}
-
-/* NONSENSE ^^^ */
-
-/* features */
+/* FEATURES PAGE (by Cameron) */
 
 .features {
     background: #212121;
@@ -87,11 +92,7 @@ footer {
     color: white;
 }
 
-.checkOrRadio {
-    accent-color: #1DB954;
-}
-
-.featureSettings2 {
+.featureSettings {
     display: flex;
     justify-content: space-evenly;
 }
@@ -106,12 +107,30 @@ footer {
     background:grey;
 }
 
+.checkOrRadio {
+    accent-color: #1DB954;
+}
+
+.belowSettings {
+    display: flex;
+    justify-content: space-between;
+}
+
 .options {
     background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
     border-radius: 1em;
     font: 1.25em Helvetica;
     text-align: center;
     width: 20%;
+}
+
+.options:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.settingsDiv {
+    text-align: left;
 }
 
 .body {
@@ -124,23 +143,6 @@ footer {
 }
 
 .body:hover {
-    border: 0.5em solid #1DB954;
-}
-
-.settingsDiv {
-    text-align: left;
-}
-
-.belowSettings {
-    display: flex;
-    justify-content: space-between;
-}
-
-.options {
-    border: 0.5em solid rgb(72, 72, 72);
-}
-
-.options:hover {
     border: 0.5em solid #1DB954;
 }
 
@@ -170,43 +172,4 @@ footer {
 .fileButtons {
     display: flex;
     justify-content: space-evenly;
-}
-
-footer {
-    background: #1DB954;
-    border: 0.25em solid #1DB954;
-    border-radius: 1em;
-    font: 1.5em Helvetica;
-    padding: 0.75em;
-    text-align: center;  
-}
-
-footer:hover {
-    border: 0.25em solid white;
-}
-
-.title {
-  margin: 0;
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: black;
-}
-
-.nav-links {
-  margin-left: 1.25rem;
-  text-decoration: none;
-  transition: all 0.25s ease-out;
-}
-
-.title {
-  margin: 0;
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: black;
-}
-
-.nav-links {
-  margin-left: 1.25rem;
-  text-decoration: none;
-  transition: all 0.25s ease-out;
 }
