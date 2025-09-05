@@ -130,6 +130,17 @@ footer:hover {
     .settingsLabel {
         font-size: 0.75em;
     }
+
+    .bodyList {
+        text-align: left;
+        font-size: 0.75em;
+    }
+
+    li span {
+        position: relative;
+        left: -5px;
+    }
+    
 }
 
 .options {
