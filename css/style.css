@@ -50,31 +50,6 @@ a:hover {
     color: lightgrey;
 }
 
-/* this is a comment */
-h1 {
-    font-family: 'Helvetica';
-    color: white;
-    background-color: #333
-}
-
-p {
-    color: purple;
-    font-style: italic;
-    border: 3px dashed red;
-}
-
-img {
-    max-width: 300px;
-}
-
-.highlightedNoCap {
-    background-color: yellow;
-}
-
-.fard {
-    color: green;
-}
-
 /* inherited property values */
 /* note... "if a rule explicitly specifies a property's value, that value will be used... 
 instead of any INHERITED value */
