@@ -111,9 +111,25 @@ footer:hover {
     accent-color: #1DB954;
 }
 
+/* default rules for .belowSettings */
 .belowSettings {
     display: flex;
     justify-content: space-between;
+}
+
+/* for narrow screens */
+@media (max-width: 700px) {
+    .h2settings {
+        font-size: 1em;
+    }
+
+    .dateButton {
+        width: 50%;
+    }
+
+    .settingsLabel {
+        font-size: 0.75em;
+    }
 }
 
 .options {
