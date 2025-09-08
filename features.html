@@ -17,18 +17,28 @@
         </div>
 
         <div class="featureSettings">
-            <div class="radioDiv">
-                <input type="radio" id="song" name="analyze" value="songListeningHistory" class="checkOrRadio" checked >
-                <label for="song">Analyze song listening history</label>
-            </div>
-            <div class="radioDiv">
-                <input type="radio" id="podcast" name="analyze" value="pCastListeningHistory" class="checkOrRadio">
-                <label for="song">Analyze podcast listening history</label>
-            </div>
-            <div class="radioDiv">
-                <input type="radio" id="audiobook" name="analyze" value="aBookListeningHistory" class="checkOrRadio">
-                <label for="song">Analyze audiobook listening history</label>
-            </div>
+
+            <label for="song">
+                <div class="radioDiv">
+                    <input type="radio" id="song" name="analyze" value="songListeningHistory" class="checkOrRadio" checked >
+                    Analyze song listening history
+                </div>
+            </label>
+
+            <label for="podcast">
+                <div class="radioDiv radDivMid">
+                    <input type="radio" id="podcast" name="analyze" value="pCastListeningHistory" class="checkOrRadio">
+                    Analyze podcast listening history
+                </div>
+            </label>
+
+            <label for="audiobook">
+                <div class="radioDiv">
+                    <input type="radio" id="audiobook" name="analyze" value="aBookListeningHistory" class="checkOrRadio">
+                    Analyze audiobook listening history
+                </div>
+            </label>
+
         </div>
 
         <!-- working on stuff below -->
@@ -63,19 +73,19 @@
             <div class="body"> 
                 <h2>Summary</h2>
                 <ul class="bodyList">
-                    <li><span>Your most-played song & how many plays: <em>Insert Here</em></span></li>
-                    <li><span>Your most-played artist & how many artists: <em>Insert Here</em></span></li>
-                    <li><span>Percentage skipped: <em>Insert Here</em></span></li>
+                    <li>Your most-played song & how many plays: <em>Insert Here</em></li>
+                    <li>Your most-played artist & how many artists: <em>Insert Here</em></li>
+                    <li>Percentage skipped: <em>Insert Here</em></li>
                 </ul>
                 <h2>Song-specific tools</h2>
                 <ul class="bodyList">
-                    <li><span>Find the number of plays for a song with a particular title</span></li>
-                    <li><span>Displaying your top _ most played songs</span></li>
+                    <li>Find the number of plays for a song with a particular title</li>
+                    <li>Displaying your top _ most played songs</li>
                 </ul>
                 <h2>Artist-specific tools</h2>
                 <ul class="bodyList">
-                    <li><span>Find the number of plays for songs with a particular artist</span></li>
-                    <li><span>Displaying your top _ most played artists</span></li>
+                    <li>Find the number of plays for songs with a particular artist</li>
+                    <li>Displaying your top _ most played artists</li>
                 </ul>
             </div>
         </div>

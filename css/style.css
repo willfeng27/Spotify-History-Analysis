@@ -94,7 +94,7 @@ footer:hover {
 
 .featureSettings {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .radioDiv {
@@ -105,6 +105,11 @@ footer:hover {
 
 .radioDiv:hover {
     background:grey;
+}
+
+.radDivMid {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .checkOrRadio {
@@ -118,6 +123,14 @@ footer:hover {
 }
 
 /* for narrow screens */
+@media (max-width: 550px) {
+    .radioDiv {
+        font-size: 1em;
+        width: 5em;
+    }
+}
+
+/* also for narrow screens */
 @media (max-width: 700px) {
     .h2settings {
         font-size: 1em;
@@ -140,7 +153,6 @@ footer:hover {
         position: relative;
         left: -5px;
     }
-    
 }
 
 .options {
@@ -150,6 +162,8 @@ footer:hover {
     font: 1.25em Helvetica;
     text-align: center;
     width: 20%;
+
+    margin-right: 0.75em;
 }
 
 .options:hover {
