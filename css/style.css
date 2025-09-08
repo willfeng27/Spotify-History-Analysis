@@ -79,12 +79,22 @@ footer:hover {
     background: #1DB954;
     border: 0.5em solid #1DB954;
     border-radius: 1.5em;
-    font: 1.5em Helvetica;
-    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-bottom: 0.75em;
 }
 
 .featuresHead:hover {
     border: 0.5em solid white;
+}
+
+.titleAndHome {
+    background: #1DB954;
+    font: 1.5em Helvetica;
+    text-align: center;
 }
 
 .featuresHeadText {
@@ -104,7 +114,7 @@ footer:hover {
 }
 
 .radioDiv:hover {
-    background:grey;
+    background: grey;
 }
 
 .radDivMid {
@@ -123,14 +133,6 @@ footer:hover {
 }
 
 /* for narrow screens */
-@media (max-width: 550px) {
-    .radioDiv {
-        font-size: 1em;
-        width: 5em;
-    }
-}
-
-/* also for narrow screens */
 @media (max-width: 700px) {
     .h2settings {
         font-size: 1em;
@@ -155,6 +157,45 @@ footer:hover {
     }
 }
 
+/* for narrower screens */
+@media (max-width: 560px) {
+    .logo {
+        display: none
+    }
+
+    .titleAndHome {
+        margin-right: 0em;
+    }
+
+    .radioDiv {
+        font-size: 1em;
+        width: 5em;
+    }
+}
+
+/* for narrowest screens */
+@media (max-width: 450px) {
+    .radioDiv {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 125%;
+    }
+
+    .h2settings {
+        font-size: 0.75em;
+    }
+
+    .settingsDiv {
+        padding-left: 0em;
+    }
+
+    .bodyList {
+        padding: 0em;
+    }
+}
+
 .options {
     background: rgb(72, 72, 72);
     border: 0.5em solid rgb(72, 72, 72);
@@ -172,6 +213,14 @@ footer:hover {
 
 .settingsDiv {
     text-align: left;
+}
+
+.checkBox {
+    border: 0.125em dashed red;
+}
+
+.checkBox:hover {
+    background: grey;
 }
 
 .body {
@@ -210,7 +259,12 @@ footer:hover {
     border: 0.5em solid #1DB954;
 }
 
-.fileButtons {
+.fileButtonsBox {
     display: flex;
     justify-content: space-evenly;
+}
+
+.fileButton {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
