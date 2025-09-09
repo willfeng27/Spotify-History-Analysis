@@ -212,7 +212,7 @@ footer:hover {
 }
 
 .settingsDiv {
-    text-align: left;
+    text-align: center;
 }
 
 .checkBox {
@@ -267,4 +267,40 @@ footer:hover {
 .fileButton {
     margin-left: 0.5em;
     margin-right: 0.5em;
+    background-color: #1DB954;
+    color:white;
+    border:none;
+    font-size:1em;
+    font-weight:bold;
+    padding: 15px 32px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.fileButton:hover {
+  background-color: #3dea79; /* Green */
+  color: white;
+}
+
+.updateButton {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top:1em;
+    background-color: #1DB954;
+    color:white;
+    border:none;
+    font-size:0.75em;
+    font-weight:bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.updateButton:hover {
+  background-color: #3dea79; /* Green */
+  color: white;
+}
+
+.bodyInput {
+    width:50px;
 }
