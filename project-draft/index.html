@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="William Feng and Cameron Roper">
+        <meta name="description" content="Analyzing your Spotify history">
+        <title> Spotify History Analysis </title>
+
+        <link rel="stylesheet" href="css\style.css">
+    </head>
+
+    <body class="features">
+
+        <div class="firstBox">
+
+            <h2>Spotify History Analysis</h2>
+
+            <nav>
+                <div id="nav-links">
+                    <a href="login.html" class="deadLink">Login</a> •
+                    <a href="about.html" class="deadLink">About</a> •
+
+                    <!-- Okay, I don't think we need this final link... The user shouldn't have
+                    access to the "features" page unless they have already uploaded a
+                    JSON file... OR, we can alter the uhhh features page to display
+                    something different if the user hasn't uploaded anything.
+                    Whatever! -->
+
+                    <a href="features.html" class="deadLink">Features</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="instructionsBox">
+            <h2><em>Welcome to Spotify History Analysis!</em></h2>
+            <p>This website allows you to analyze your Spotify account's extended streaming history in the form of a JSON file.</p>
+            <p>You can discover your most-played song, your top five artists over a particular period of time, and much more!</p>
+            <p>To download your extended streaming history, take the following steps:</p>
+            <details class="instructionDetails">
+                <summary data-open="Hide steps" data-close="Show steps"></summary>
+                <ul class="instructions">
+                    <li class="step"><em>If you're using the desktop version of Spotify,</em> go to <span class="stepEmphasis">"Account"</span> (first, click on the circular icon displaying your profile picture in the top-right corner). Then, scroll down to the section titled <span class=stepEmphasis>"Security and privacy"</span> and go to <span class="stepEmphasis">"Account privacy"</span>.</li>
+                    <li class="step"><em>If you're using the Spotify app on a mobile device,</em> tap on your profile picture in the top-left corner, go to <span class="stepEmphasis">"Settings and privacy"</span>, go to <span class="stepEmphasis">"Privacy and social"</span>, then scroll down and tap <span class="stepEmphasis">"View more options on the Account Privacy page on the web"</span>.</li>
+                    <li class="step"><em>No matter which device you're using,</em> now scroll down to the section titled <span class="stepEmphasis">"Download your data."</span> Note that the box for "Select Account data" is already checked off. Uncheck this box, and check off the box for <span class="stepEmphasis">"Select Extended streaming history"</span> instead.</li>
+                    <li class="step">Scroll down and click/tap the <span class="stepEmphasis">"Request data"</span> button.</li>
+                    <li class="step">You should have received a confirmation email from Spotify at the email address linked to your Spotify account. Open this email and click/tap the <span class="stepEmphasis">"confirm"</span> button.</li>
+                    <li class="step">Wait up to 30 days to receive an email from Spotify containing your extended streaming history.</li>
+                    <li class="step">Once you receive an email titled "Your extended streaming history is ready to download", open the email and click/tap the <span class="stepEmphasis">"download"</span> button. <em>Note that you must complete this step within 14 days of receiving the email.</em></li>
+                    <li class="step">Unzip the downloaded (zipped) file and ensure that it contains one or more JSON files.</li>
+                </ul>
+            </details>
+            <p>Once you have completed these steps, upload your JSON file(s) below!</p>
+        </div>
+
+        <div class="containerUploadJSON">
+            <label for="uploadJSON">
+                <div class="divUploadJSON">
+                    <p>↑</p>
+                    <p class="divUploadMid">Upload a JSON file</p>
+                    <p>↑</p>
+                    <input id="uploadJSON" type="file" class="buttonUploadJSON">
+                </div>
+            </label>
+        </div>
+        
+        <div>
+            <footer>
+                <em>
+                    Website created by 
+                    <a href="https://github.com/willfeng27">Will Feng</a>
+                    and 
+                    <a href="https://github.com/cjroper212">Cameron Roper</a>
+                </em>
+            </footer>
+        </div>
+
+    </body>
+
+</html>
