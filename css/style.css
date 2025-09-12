@@ -10,31 +10,39 @@ a:hover {
 
 div {
     padding: 1em;
-    max-width: 100%
+
+    /* IDK if this does anything */
+    /* max-width: 100% */
 }
 
 footer {
     background: #1DB954;
-    /* border: 0.25em solid #1DB954; */
     border-radius: 1em;
     font: 1.5em Helvetica;
     padding: 0.75em;
     text-align: center;  
 }
 
-/* footer:hover {
-    border: 0.25em solid white;
-} */
-
 /* HOME PAGE (by William) */
 
 .first {
-    background: #1DB954;
+    background: #212121;
     font: 2em Helvetica;
+    padding: 0.5em;
     text-align: center;
+    color: white;
 }
 
-.outerBox {
+.firstBox {
+    background: #1DB954;
+    border-radius: 0.75em;
+    font: 2em Helvetica;
+    text-align: center
+
+    /* TBC!!! i need to take a fat shiet */
+}
+
+/* .outerBox {
     height: 3em;
     border: 0.25em solid #317843;
     border-radius: 1em;
@@ -53,18 +61,136 @@ footer {
     width: 15em;
 
     background: #1DB954;
-}
+} */
 
-.mainTitle {
+/* .mainTitle {
     color: white;
     font-weight: bold;
     font-style: italic;
-}
+} */
 
 .nav-links {
   margin-left: 1.25rem;
   text-decoration: none;
   transition: all 0.25s ease-out;
+}
+
+.deadLink {
+    color: lightgrey;
+}
+
+.deadLink:hover {
+    color: red;
+}
+
+.instructionsBox {
+    font: 1.5em Helvetica;
+    margin: 1em;
+    padding-bottom: 0em;
+    text-align: center;
+
+    /* background: red; */
+}
+
+.instructionDetails[open] summary::after {
+    content: attr(data-open);
+    font-weight: bold;
+}
+
+.instructionDetails:not([open]) summary::after {
+    content: attr(data-close);
+    font-weight: bold;
+}
+
+/* THANK YOU "connexo" this is quite goofy */
+/* .instructionDetails summary::after {
+    content: attr(data-open);
+    font-size: 0.75em;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.instructionDetails[open] summary::after {
+    content: attr(data-open);
+    font-size: 1em;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.instructionDetails summary::before {
+    content: attr(data-close);
+    font-size: 0.75em;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.instructionDetails:not([open]) summary::before {
+    content: attr(data-close);
+    font-size: 1em;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.instructionDetails summary::after,
+.instructionDetails summary::before {
+    display: inline-block;
+    transition: all .4s ease-in-out;
+    transform-origin: center bottom;
+} */
+
+.instructions {
+    font: 0.75em Helvetica;
+    margin-bottom: 3em;
+    text-align: left;
+}
+
+.step {
+    margin: 0.75em;
+}
+
+.stepEmphasis {
+    color: #1DB954;
+}
+
+.containerUploadJSON {
+    display: flex;
+    justify-content: center;
+    margin: 3.5em;
+}
+
+.divUploadJSON {
+    background: rgb(72, 72, 72);
+    border-radius: 0.75em;
+    font: 2em Helvetica;
+    font-weight: bold;
+    padding: 2em;
+    transition-duration: 0.4s;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.divUploadJSON:hover {
+    background: grey;
+}
+
+.divUploadMid {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-align: center;
+}
+
+.buttonUploadJSON {
+    display: none;
+}
+
+.indexFooter {
+    background: #1DB954;
+    border-radius: 1em;
+    font: 0.75em Helvetica;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    text-align: center; 
 }
 
 /* FEATURES PAGE (by Cameron) */
@@ -215,14 +341,6 @@ footer {
     text-align: center;
 }
 
-.checkBox {
-    border: 0.125em dashed red;
-}
-
-.checkBox:hover {
-    background: grey;
-}
-
 .body {
     background: rgb(72, 72, 72);
     border: 0.5em solid rgb(72, 72, 72);
@@ -244,6 +362,10 @@ footer {
 .belowOptions {
     display: flex;
     justify-content: center;
+}
+
+.bodyInput {
+    width: 50px;
 }
 
 .fileManagement {
@@ -278,29 +400,44 @@ footer {
 }
 
 .fileButton:hover {
-  background-color: #3dea79; /* Green */
+  background-color: #3DEA79; /* subject to change? */
   color: white;
 }
 
 .updateButton {
     margin-left: 0.5em;
     margin-right: 0.5em;
-    margin-top:1em;
+    margin-top: 1em;
+
     background-color: #1DB954;
-    color:white;
-    border:none;
-    font-size:0.75em;
-    font-weight:bold;
+    color: white;
+    border: none;
+    font-size: 0.75em;
+    font-weight: bold;
     padding: 10px 16px;
     border-radius: 8px;
     transition-duration: 0.4s;
 }
 
 .updateButton:hover {
-  background-color: #3dea79; /* Green */
+  background-color: #3DEA79; /* Green */
   color: white;
 }
 
-.bodyInput {
-    width:50px;
+.uploadFileDiv{
+    background-color: #1DB954;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 1.5em;
+    transition-duration: 0.4s;
+}
+
+.uploadFileDiv:hover {
+    background-color: #3DEA79;
+}
+
+.uploadFileButton {
+    display: none;
 }

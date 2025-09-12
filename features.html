@@ -84,12 +84,12 @@
                 </ul>
                 <h2>Song-specific tools</h2>
                 <ul class="bodyList">
-                    <li>Find the number of plays for a song with a particular title</li>
+                    <li>Find the number of plays for a song with a particular title: <input type="text" class="bodyInput"></input></li>
                     <li>Displaying your top <input type="text" class="bodyInput"></input> most played songs</li>
                 </ul>
                 <h2>Artist-specific tools</h2>
                 <ul class="bodyList">
-                    <li>Find the number of plays for songs with a particular artist</li>
+                    <li>Find the number of plays for songs with a particular artist: <input type="text" class="bodyInput"></input></li>
                     <li>Displaying your top <input type="text" class="bodyInput"></input> most played artists</li>
                 </ul>
             </div>
@@ -99,13 +99,19 @@
             <div class="fileManagement">
                 <h2>File Management</h2>
                 <div class="fileButtonsBox"> 
-                    <!-- testing JavaScript hahaha -->
-                    <button class="fileButton" onclick="
-                            alert('Add another JSON file to the analysis pool')
-                        ">Add another JSON file to the analysis pool</button>
-                    <button class="fileButton" onclick="
-                        alert('Remove a JSON file from the analysis pool')
-                    ">Remove a JSON file from the analysis pool</button>
+
+                    <!-- <button class="fileButton">Add another JSON file to the analysis pool</button>
+                    <button class="fileButton">Remove a JSON file from the analysis pool</button> -->
+
+                    <label for="userFile">
+                        <div class="uploadFileDiv">
+                            Add another JSON file to the analysis pool
+                            <input id="userFile" type="file" class="uploadFileButton">
+                        </div>
+                    </label>
+
+                    <button class="fileButton">Remove a JSON file from the analysis pool</button>
+
                 </div>
             </div>
         </div>
@@ -123,7 +129,13 @@
 
         <!-- the SCRIPT code runs when the page is loaded -->
         <script>
-            // alert('poopy');
+
+            function testFunction() {
+                alert('poopy');
+            }
+
+            // testFunction();
+
         </script>
         
     </body>
