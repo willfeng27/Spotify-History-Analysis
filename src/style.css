@@ -1,0 +1,445 @@
+/* pasted from project-draft */
+
+/* ELEMENTS */
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+div {
+    padding: 1em;
+
+    /* IDK if this does anything */
+    /* max-width: 100% */
+}
+
+footer {
+    background: #1DB954;
+    border-radius: 1em;
+    font: 1.5em Helvetica;
+    padding: 0.75em;
+    text-align: center;  
+}
+
+/* HOME PAGE (by William) */
+
+.first {
+    background: #212121;
+    font: 2em Helvetica;
+    padding: 0.5em;
+    text-align: center;
+    color: white;
+}
+
+.firstBox {
+    background: #1DB954;
+    border-radius: 0.75em;
+    font: 2em Helvetica;
+    text-align: center
+
+    /* TBC!!! i need to take a fat shiet */
+}
+
+/* .outerBox {
+    height: 3em;
+    border: 0.25em solid #317843;
+    border-radius: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+}
+
+.innerBox {
+    border: 0.125em solid #317843;
+    border-radius: 1em;
+    padding: 1em;
+    width: 15em;
+
+    background: #1DB954;
+} */
+
+/* .mainTitle {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+} */
+
+.nav-links {
+  margin-left: 1.25rem;
+  text-decoration: none;
+  transition: all 0.25s ease-out;
+}
+
+.deadLink {
+    color: lightgrey;
+}
+
+.deadLink:hover {
+    color: red;
+}
+
+.instructionsBox {
+    font: 1.5em Helvetica;
+    margin: 1em;
+    padding-bottom: 0em;
+    text-align: center;
+
+    /* background: red; */
+}
+
+.instructionDetails[open] summary::after {
+    content: attr(data-open);
+    font-weight: bold;
+}
+
+.instructionDetails:not([open]) summary::after {
+    content: attr(data-close);
+    font-weight: bold;
+}
+
+/* THANK YOU "connexo" this is quite goofy */
+/* .instructionDetails summary::after {
+    content: attr(data-open);
+    font-size: 0.75em;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.instructionDetails[open] summary::after {
+    content: attr(data-open);
+    font-size: 1em;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.instructionDetails summary::before {
+    content: attr(data-close);
+    font-size: 0.75em;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.instructionDetails:not([open]) summary::before {
+    content: attr(data-close);
+    font-size: 1em;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.instructionDetails summary::after,
+.instructionDetails summary::before {
+    display: inline-block;
+    transition: all .4s ease-in-out;
+    transform-origin: center bottom;
+} */
+
+.instructions {
+    font: 0.75em Helvetica;
+    margin-bottom: 3em;
+    text-align: left;
+}
+
+.step {
+    margin: 0.75em;
+}
+
+.stepEmphasis {
+    color: #1DB954;
+}
+
+.containerUploadJSON {
+    display: flex;
+    justify-content: center;
+    margin: 3.5em;
+}
+
+.divUploadJSON {
+    background: rgb(72, 72, 72);
+    border-radius: 0.75em;
+    font: 2em Helvetica;
+    font-weight: bold;
+    padding: 2em;
+    transition-duration: 0.4s;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.divUploadJSON:hover {
+    background: grey;
+}
+
+.divUploadMid {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-align: center;
+}
+
+.buttonUploadJSON {
+    display: none;
+}
+
+.indexFooter {
+    background: #1DB954;
+    border-radius: 1em;
+    font: 0.75em Helvetica;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    text-align: center; 
+}
+
+/* FEATURES PAGE (by Cameron) */
+
+.features {
+    background: #212121;
+    color: white;
+    padding: 1em;
+}
+
+.featuresHead {
+    background: #1DB954;
+    /* border: 0.5em solid #1DB954; */
+    border-radius: 1.5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-bottom: 0.75em;
+}
+
+/* .featuresHead:hover {
+    border: 0.5em solid white;
+} */
+
+.titleAndHome {
+    background: #1DB954;
+    font: 1.5em Helvetica;
+    text-align: center;
+}
+
+.featuresHeadText {
+    background: #1DB954;
+    color: white;
+}
+
+.featureSettings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radioDiv {
+    background: rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+}
+
+.radioDiv:hover {
+    background: grey;
+}
+
+.radDivMid {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.checkOrRadio {
+    accent-color: #1DB954;
+}
+
+/* default rules for .belowSettings */
+.belowSettings {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* for narrow screens */
+@media (max-width: 700px) {
+    .h2settings {
+        font-size: 1em;
+    }
+
+    .dateButton {
+        width: 50%;
+    }
+
+    .settingsLabel {
+        font-size: 0.75em;
+    }
+
+    .bodyList {
+        text-align: left;
+        font-size: 0.75em;
+    }
+
+    li span {
+        position: relative;
+        left: -5px;
+    }
+}
+
+/* for narrower screens */
+@media (max-width: 560px) {
+    .logo {
+        display: none
+    }
+
+    .titleAndHome {
+        margin-right: 0em;
+    }
+
+    .radioDiv {
+        font-size: 1em;
+        width: 5em;
+    }
+}
+
+/* for narrowest screens */
+@media (max-width: 450px) {
+    .radioDiv {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 125%;
+    }
+
+    .h2settings {
+        font-size: 0.75em;
+    }
+
+    .settingsDiv {
+        padding-left: 0em;
+    }
+
+    .bodyList {
+        padding: 0em;
+    }
+}
+
+.options {
+    background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 20%;
+
+    margin-right: 0.75em;
+}
+
+.options:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.settingsDiv {
+    text-align: center;
+}
+
+.body {
+    background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 70%;
+}
+
+.body:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.bodyList {
+    color: white;
+    list-style-position: inside;
+}
+
+.belowOptions {
+    display: flex;
+    justify-content: center;
+}
+
+.bodyInput {
+    width: 50px;
+}
+
+.fileManagement {
+    background: rgb(72, 72, 72);
+    border: 0.5em solid rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    text-align: center;
+    width: 90%;
+}
+
+.fileManagement:hover {
+    border: 0.5em solid #1DB954;
+}
+
+.fileButtonsBox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fileButton {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: #1DB954;
+    color:white;
+    border:none;
+    font-size:1em;
+    font-weight:bold;
+    padding: 15px 32px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.fileButton:hover {
+  background-color: #3DEA79; /* subject to change? */
+  color: white;
+}
+
+.updateButton {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 1em;
+
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.updateButton:hover {
+  background-color: #3DEA79; /* Green */
+  color: white;
+}
+
+.uploadFileDiv{
+    background-color: #1DB954;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 1.5em;
+    transition-duration: 0.4s;
+}
+
+.uploadFileDiv:hover {
+    background-color: #3DEA79;
+}
+
+.uploadFileButton {
+    display: none;
+}
