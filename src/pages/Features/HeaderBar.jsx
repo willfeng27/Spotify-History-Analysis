@@ -1,11 +1,18 @@
-// import navlink???
-
 import React from 'react';
 
 export function HeaderBar(props) {
     return (
-        <header>
-            <h1>Spotify History Analysis</h1>
-        </header>
+        <div className="featuresHead">
+
+            <div className="logo">
+                <img src="img\logo1.png" alt="logo placeholder"></img>
+            </div>
+
+            <div className="titleAndHome"> 
+                <h1 className="featuresHeadText">Spotify History Analysis Tools</h1>
+                <h4><a href="index.html">Home Page</a></h4>
+            </div>
+            
+        </div>
     );
 }

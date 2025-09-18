@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function MediaOption(props) {
+export function SettingsOption(props) {
     return (
         <>
             {/* IDK what to do here!!! */}
