@@ -1,5 +1,8 @@
 import React from 'react';
+
+import {SelectButton} from './SelectButton.jsx';
 import {FooterBar} from '../../components/FooterBar.jsx';
+
 export default function Home() {
     return (
         <body className="features">
@@ -10,8 +13,8 @@ export default function Home() {
 
                 <nav>
                     <div id="nav-links">
-                        <a href="login.html" className="deadLink">Login</a> •
-                        <a href="about.html" className="deadLink">About</a> •
+                        <a href="login.html" className="deadLink">Login</a> &nbsp;
+                        <a href="about.html" className="deadLink">About</a> &nbsp;
 
                         {/* Okay, I don't think we need this final link... The user shouldn't have
                         access to the "features" page unless they have already uploaded a
@@ -42,21 +45,13 @@ export default function Home() {
                         <li className="step">Unzip the downloaded (zipped) file and ensure that it contains one or more JSON files.</li>
                     </ul>
                 </details>
-                <p>Once you have completed these steps, upload your JSON file(s) below!</p>
+                <p>Once you have completed these steps, select and upload your JSON file(s) below!</p>
             </div>
 
-            <div className="containerUploadJSON">
-                <label for="uploadJSON">
-                    <div className="divUploadJSON">
-                        <p>↑</p>
-                        <p className="divUploadMid">Upload a JSON file</p>
-                        <p>↑</p>
-                        <input id="uploadJSON" type="file" className="buttonUploadJSON"></input>
-                    </div>
-                </label>
-            </div>
+            <SelectButton />
             
             <FooterBar />
+
         </body>
     );
 }

@@ -22,7 +22,9 @@ footer {
     border-radius: 1em;
     font: 1.5em Helvetica;
     padding: 0.75em;
-    text-align: center;  
+    text-align: center; 
+    
+    margin-bottom: 0em;
 }
 
 /* HOME PAGE (by William) */
@@ -43,33 +45,6 @@ footer {
 
     /* TBC!!! i need to take a fat shiet */
 }
-
-/* .outerBox {
-    height: 3em;
-    border: 0.25em solid #317843;
-    border-radius: 1em;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: black;
-}
-
-.innerBox {
-    border: 0.125em solid #317843;
-    border-radius: 1em;
-    padding: 1em;
-    width: 15em;
-
-    background: #1DB954;
-} */
-
-/* .mainTitle {
-    color: white;
-    font-weight: bold;
-    font-style: italic;
-} */
 
 .nav-links {
   margin-left: 1.25rem;
@@ -104,42 +79,6 @@ footer {
     font-weight: bold;
 }
 
-/* THANK YOU "connexo" this is quite goofy */
-/* .instructionDetails summary::after {
-    content: attr(data-open);
-    font-size: 0.75em;
-    font-weight: bold;
-    opacity: 0;
-}
-
-.instructionDetails[open] summary::after {
-    content: attr(data-open);
-    font-size: 1em;
-    font-weight: bold;
-    opacity: 1;
-}
-
-.instructionDetails summary::before {
-    content: attr(data-close);
-    font-size: 0.75em;
-    font-weight: bold;
-    opacity: 0;
-}
-
-.instructionDetails:not([open]) summary::before {
-    content: attr(data-close);
-    font-size: 1em;
-    font-weight: bold;
-    opacity: 1;
-}
-
-.instructionDetails summary::after,
-.instructionDetails summary::before {
-    display: inline-block;
-    transition: all .4s ease-in-out;
-    transform-origin: center bottom;
-} */
-
 .instructions {
     font: 0.75em Helvetica;
     margin-bottom: 3em;
@@ -156,34 +95,67 @@ footer {
 
 .containerUploadJSON {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
     margin: 3.5em;
 }
 
-.divUploadJSON {
+.divSelectJSON {
     background: rgb(72, 72, 72);
     border-radius: 0.75em;
     font: 2em Helvetica;
     font-weight: bold;
-    padding: 2em;
+    padding: 0.25em;
     transition-duration: 0.4s;
 
     display: flex;
     justify-content: space-between;
 }
 
-.divUploadJSON:hover {
+.divSelectJSON:hover {
     background: grey;
 }
 
-.divUploadMid {
+.divSelectMid {
     margin-left: 0.5em;
     margin-right: 0.5em;
     text-align: center;
 }
 
-.buttonUploadJSON {
+.buttonSelectJSON {
     display: none;
+}
+
+.selectedFilesTitle {
+    font: 2em Helvetica;
+    font-weight: bold;
+
+    margin-top: 1.5em;
+}
+
+.selectedFiles {
+    font: 1em Helvetica;
+    margin-top: -3em;
+}
+
+.buttonUploadJSON {
+    background: #1DB954;
+    border-radius: 1em;
+    border: 0em;
+    color: white;
+    font: 2em Helvetica;
+
+    margin-top: 0.75em;
+    padding: 2em;
+
+    text-align: center;
+
+    transition: 0.4s;
+}
+
+.buttonUploadJSON:hover {
+    background: #3DEA79;
 }
 
 .indexFooter {
@@ -201,6 +173,8 @@ footer {
     background: #212121;
     color: white;
     padding: 1em;
+
+    padding-bottom: 0em;
 }
 
 .featuresHead {
