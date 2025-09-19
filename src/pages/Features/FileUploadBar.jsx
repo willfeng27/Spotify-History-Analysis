@@ -1,8 +1,3 @@
-import React from 'react';
-
-// ehhh
-import {FileButton} from './FileButton.jsx;';
-
 export function FileUploadBar(props) {
     return (
         <div className="fileManagement">

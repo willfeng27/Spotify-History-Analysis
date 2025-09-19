@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// copied from william feng
+import {createRoot} from 'react-dom/client';
+import {BrowserRouter} from 'react-router';
+
+// will need to import "initialize app" ... for fire base
 
 import App from './App.jsx';
-
-// import CSS?
-// what is bootstrap?
 import './style.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+createRoot(document.getElementById("root")).render (
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+);

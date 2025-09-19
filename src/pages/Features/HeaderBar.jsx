@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function HeaderBar(props) {
     return (
         <div className="featuresHead">
@@ -10,7 +8,7 @@ export function HeaderBar(props) {
 
             <div className="titleAndHome"> 
                 <h1 className="featuresHeadText">Spotify History Analysis Tools</h1>
-                <h4><a href="index.html">Home Page</a></h4>
+                <h4><a href='\'>Home Page</a></h4>
             </div>
             
         </div>

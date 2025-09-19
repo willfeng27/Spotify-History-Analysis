@@ -1,15 +1,23 @@
-// import "navlink" at some point...
+// wtf is NAVLINK
 
-import React from 'react';
+import {useState} from 'react';
 
-import {HeaderBar} from 'HeaderBar.jsx';
-import {MediaBar} from 'MediaBar.jsx';
-import {SettingsBar} from 'SettingsBar.jsx';
-import {ContentSection} from 'ContentSection.jsx';
-import {FileUploadBar} from 'FileUploadBar.jsx';
+import {HeaderBar} from './HeaderBar.jsx';
+import {MediaBar} from './MediaBar.jsx';
+import {SettingsBar} from './SettingsBar.jsx';
+import {ContentSection} from './ContentSection.jsx';
+import {FileUploadBar} from './FileUploadBar.jsx';
 import {FooterBar} from '../../components/FooterBar.jsx';
 
+// this is a PARENT (for ContentSection and MediaBar... whatever)
 export default function Features() {
+
+    const [media, setMedia] = useState('song');
+
+    function handleMediaChange(mediaFromChild) {
+        setMedia(mediaFromChild);
+    }
+
     return (
         <body className="features">
 
@@ -17,7 +25,7 @@ export default function Features() {
             <HeaderBar />
 
             {/* media bar */}
-            <MediaBar />
+            <MediaBar media={media} handleMediaChange={handleMediaChange} />
 
             <div className="belowSettings">
                 
@@ -25,7 +33,7 @@ export default function Features() {
                 <SettingsBar />
 
                 {/* content section */}
-                <ContentSection />
+                <ContentSection media={media} />
 
             </div>
 

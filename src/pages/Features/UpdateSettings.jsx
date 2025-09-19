@@ -1,9 +1,9 @@
-import React from 'react';
-
 export function UpdateSettings(props) {
     return (
-        <button className="updateButton">
-            Update Settings
-        </button>
+        <div className="updateButtonDiv">
+            <button className="updateButton">
+                Update Settings
+            </button>
+        </div>
     );
 }

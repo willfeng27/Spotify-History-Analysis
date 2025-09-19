@@ -1,12 +1,3 @@
-import React from 'react';
-
-// eh
-import {SettingsOption} from './SettingsOption.jsx';
-
-// eh
-import {Date} from './Date.jsx';
-
-// probably?
 import {UpdateSettings} from './UpdateSettings.jsx';
 
 export function SettingsBar(props) {

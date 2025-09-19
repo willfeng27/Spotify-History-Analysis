@@ -1,12 +1,9 @@
-import React from 'react';
-
 import {SelectButton} from './SelectButton.jsx';
 import {FooterBar} from '../../components/FooterBar.jsx';
 
 export default function Home() {
     return (
         <body className="features">
-            {/* header */}
             <div className="firstBox">
 
                 <h2>Spotify History Analysis</h2>
@@ -22,7 +19,7 @@ export default function Home() {
                         something different if the user hasn't uploaded anything.
                         Whatever! */}
 
-                        <a href="features.html" className="deadLink">Features</a>
+                        <a href='features'>Features</a>
                     </div>
                 </nav>
             </div>

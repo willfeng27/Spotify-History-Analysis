@@ -1,9 +1,6 @@
-import React from 'react';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
-import {UploadButton} from './UploadButton.jsx';
-
-// i did... uhhh... npm install axios@0.24.0 in GITBASH
+// npm install axios@0.24.0 in GITBASH
 import axios from 'axios';
 
 // ??? ts is not x

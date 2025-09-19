@@ -380,6 +380,11 @@ footer {
   color: white;
 }
 
+.updateButtonDiv {
+    display: flex;
+    justify-content: center;
+}
+
 .updateButton {
     margin-left: 0.5em;
     margin-right: 0.5em;
@@ -398,6 +403,12 @@ footer {
 .updateButton:hover {
   background-color: #3DEA79; /* Green */
   color: white;
+}
+
+@media (max-width: 560px) {
+    .updateButton {
+        font-size: 0.5em;
+    }
 }
 
 .uploadFileDiv{
