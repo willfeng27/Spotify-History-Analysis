@@ -215,13 +215,34 @@ footer {
     font: 1.25em Helvetica;
 }
 
-.radioDiv:hover {
-    background: grey;
-}
+.radioDivMid {
+    background: rgb(72, 72, 72);
+    border-radius: 1em;
+    font: 1.25em Helvetica;
 
-.radDivMid {
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+.checkedDiv {
+    background: grey;
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    font-weight: bold;
+}
+
+.checkedDivMid {
+    background: grey;
+    border-radius: 1em;
+    font: 1.25em Helvetica;
+    font-weight: bold;
+
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.radioDiv:hover {
+    background: grey;
 }
 
 .checkOrRadio {

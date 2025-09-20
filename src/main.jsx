@@ -1,4 +1,6 @@
 // copied from william feng
+
+// $ npm install react-router-dom
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter} from 'react-router';
 
