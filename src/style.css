@@ -158,6 +158,48 @@ footer {
     background: #3DEA79;
 }
 
+.uploadStatus {
+    color: white;
+    font: 1.5em Helvetica;
+    font-weight: bold;
+}
+
+.uploadFailed {
+    color: red;
+}
+
+.cyclePara {
+    margin-top: 0em;
+}
+
+#cycle:after {
+    animation-name: cycle;
+
+    /* SOS by Rihanna */
+    animation-duration: 1.75182482s;  
+
+    animation-iteration-count: infinite;
+    content: "";
+}
+
+@keyframes cycle {
+    0% {
+        content: "._.";
+    }
+    25% {
+        content: ":|";
+    }
+    50% {
+        content: ".-.";
+    }
+    75% {
+        content: "|:";
+    }
+    100% {
+        content: "._.";
+    }
+}
+
 .indexFooter {
     background: #1DB954;
     border-radius: 1em;

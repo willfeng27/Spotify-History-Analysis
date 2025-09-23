@@ -10,7 +10,7 @@ import {FileUploadBar} from './FileUploadBar.jsx';
 import {FooterBar} from '../../components/FooterBar.jsx';
 
 // this is a PARENT (for ContentSection and MediaBar... whatever)
-export default function Features() {
+export default function Features(props) {
 
     const [media, setMedia] = useState('song');
 
@@ -33,7 +33,8 @@ export default function Features() {
                 <SettingsBar />
 
                 {/* content section */}
-                <ContentSection media={media} />
+                <ContentSection media={media} playArrayArray={props.playArrayArray} 
+                    setPlayArrayArray={props.setPlayArrayArray} uploadStatus={props.uploadStatus} setUploadStatus={props.setUploadStatus}/>
 
             </div>
 
