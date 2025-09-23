@@ -1,4 +1,12 @@
+import { collection, addDoc } from "firebase/firestore";
+
+import { useLocation } from 'react-router-dom';
+
 export function ContentSection(props) {
+
+    const {state} = useLocation();
+    const {playArrayArray} = state;
+
     return (
         <div className="body"> 
 
@@ -9,8 +17,8 @@ export function ContentSection(props) {
             {props.media === 'song' && (
                 <>
                     <ul className="bodyList">
-                        <li>Your most-played song & how many plays: <em>Stuff</em></li>
-                        <li>Your most-played artist & how many artists: <em>Stuff</em></li>
+                        <li>Your most-played song & how many plays: <em>{playArrayArray[0].length}</em></li>
+                        <li>Your most-played artist & how many artists: <em>{playArrayArray.length}</em></li>
                         <li>Percentage skipped: <em>Stuff</em></li>
                     </ul>
 

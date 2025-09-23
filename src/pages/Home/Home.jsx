@@ -1,7 +1,7 @@
 import {SelectButton} from './SelectButton.jsx';
 import {FooterBar} from '../../components/FooterBar.jsx';
 
-export default function Home() {
+export default function Home(props) {
     return (
         <body className="features">
             <div className="firstBox">
@@ -45,7 +45,8 @@ export default function Home() {
                 <p>Once you have completed these steps, select and upload your JSON file(s) below!</p>
             </div>
 
-            <SelectButton />
+            <SelectButton playArrayArray={props.playArrayArray} setPlayArrayArray={props.setPlayArrayArray}
+                uploadStatus={props.uploadStatus} setUploadStatus={props.setUploadStatus} handleFileUpload={props.handleFileUpload}/>
             
             <FooterBar />
 

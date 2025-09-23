@@ -1,30 +1,27 @@
 import { useState } from 'react';
 
-// npm install axios@0.24.0 in GITBASH
-import axios from 'axios';
-
-// ??? ts is not x
-// const UploadStatus = 'idle' | 'uploading' | 'success' | 'error';
-
 export function SelectButton(props) {
 
     const [files, setFiles] = useState([]);
 
-    const [status, setStatus] = useState('idle');
+    const maxUploadSize = 15000000;
 
+    // from a video i watched
     function handleFileChange(event) {
         if (event.target.files) {
 
             const chosenFiles = [];
             for (let i = 0; i < event.target.files.length; i++) {
-                chosenFiles.push(event.target.files[i]);
+                let currFile = event.target.files[i];
+                if (currFile.size < maxUploadSize) {
+                    chosenFiles.push(currFile);
+                }
             }
             setFiles(chosenFiles);
 
         }
     }
 
-    // i am legally stupid
     function handleRemoveClick(index) {
         const revisedFiles = [];
         for (let i = 0; i < files.length; i++) {
@@ -33,37 +30,6 @@ export function SelectButton(props) {
             }
         }
         setFiles(revisedFiles);
-    }
-
-    // ngl this is confusing as hell i just watched a tutorial lol
-    async function handleFileUpload() {
-        if (files.length === 0) {
-            return;
-        }
-
-        setStatus('uploading');
-
-        const formData = new FormData();
-        for (let i = 0; i < files.length; i++) {
-            const fileString = 'file' + (i + 1);
-            formData.append(fileString, files[i]);
-        }
-
-        // placeholder backend... thanks
-        try {
-            await axios.post('https://httpbin.org/post', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            setStatus('success');
-
-        } catch {
-
-            setStatus('error');
-
-        }
     }
 
     return (
@@ -95,10 +61,7 @@ export function SelectButton(props) {
                             <p>
                                 <strong>• &nbsp; File #{index + 1}</strong>: &nbsp; &nbsp; &nbsp;
                                 File name: <span className="stepEmphasis">{file.name}</span> | 
-                                Size: <span className="stepEmphasis">{(file.size / 1024).toFixed(2)} KB</span>
-
-                                 {/* no shit buddy boy  */}
-                                {/* Type: <span className="stepEmphasis">{file.type}</span> */} &nbsp; &nbsp;
+                                Size: <span className="stepEmphasis">{(file.size / 1024).toFixed(2)} KB</span> &nbsp; &nbsp;
 
                                 <button onClick={() => handleRemoveClick(index)}>Remove File</button>
                             </p>
@@ -107,30 +70,35 @@ export function SelectButton(props) {
 
                     </div>
 
-                    {status !== "uploading" && (
+                    {props.uploadStatus !== "uploading" && (
 
-                        <button className="buttonUploadJSON" onClick={() => handleFileUpload()}>
+                        <button className="buttonUploadJSON" onClick={() => props.handleFileUpload(files)}>
                             <strong>Confirm & upload JSON files!</strong>
                         </button>
                     
                     )}
 
-                    {status === 'uploading' && (
-                        <p>
-                            I NEED TO PISS SO BAD!!!
-                        </p>
+                    {props.uploadStatus === 'uploading' && (
+                        <>
+                            <p className="uploadStatus">
+                                Uploading {files.length} file(s), please wait...
+                            </p>
+                            <p className="uploadStatus cyclePara">
+                                <span id="cycle"></span>
+                            </p>
+                        </>
                     )}
 
                     {/* TODO: instead of displaying this message, just take them to the features page... do it */}
-                    {status === 'success' && (
-                        <p>
-                            {files.length} file(s) uploaded successfully!!!
+                    {props.uploadStatus === 'success' && (
+                        <p className="uploadStatus">
+                            {files.length} file(s) uploaded successfully! Redirecting...
                         </p>
                     )}
 
-                    {status === 'error' && (
-                        <p>
-                            Upload failed!!! Try again, buddy boy.
+                    {props.uploadStatus === 'formattingError' && (
+                        <p className="uploadStatus">
+                            <span class="uploadFailed">Upload(s) failed, please ensure that your JSON files are formatted correctly.</span>
                         </p>
                     )}
                 
