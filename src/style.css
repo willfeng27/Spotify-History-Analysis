@@ -111,6 +111,8 @@ footer {
 
     display: flex;
     justify-content: space-between;
+
+    margin-top: -0.5em;
 }
 
 .divSelectJSON:hover {
@@ -128,14 +130,14 @@ footer {
 }
 
 .selectedFilesTitle {
-    font: 2em Helvetica;
+    font: 1.5em Helvetica;
     font-weight: bold;
 
     margin-top: 1.5em;
 }
 
 .selectedFiles {
-    font: 1em Helvetica;
+    font: 0.75em Helvetica;
     margin-top: -3em;
 }
 
@@ -147,7 +149,7 @@ footer {
     font: 2em Helvetica;
 
     margin-top: 0.75em;
-    padding: 2em;
+    padding: 1.5em;
 
     text-align: center;
 
@@ -160,7 +162,7 @@ footer {
 
 .uploadStatus {
     color: white;
-    font: 1.5em Helvetica;
+    font: 1.25em Helvetica;
     font-weight: bold;
 }
 

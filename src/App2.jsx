@@ -1,21 +1,46 @@
+// firebase stuff
 import { initializeApp } from 'firebase/app';
 const firebaseConfig = {
-  apiKey: "AIzaSyAdGd8Th7RDrbZS09PlvKUsMEUJuPsBA0o",
-  authDomain: "spotify-analysis-history.firebaseapp.com",
-  projectId: "spotify-analysis-history",
-  storageBucket: "spotify-analysis-history.firebasestorage.app",
-  messagingSenderId: "949348013861",
-  appId: "1:949348013861:web:ef94ebdb40a90d9d69eccc",
-  measurementId: "G-X73G2VNM3Q"
+    apiKey: "AIzaSyAdGd8Th7RDrbZS09PlvKUsMEUJuPsBA0o",
+    authDomain: "spotify-analysis-history.firebaseapp.com",
+    projectId: "spotify-analysis-history",
+    storageBucket: "spotify-analysis-history.firebasestorage.app",
+    messagingSenderId: "949348013861",
+    appId: "1:949348013861:web:ef94ebdb40a90d9d69eccc",
+    measurementId: "G-X73G2VNM3Q"
 };
 const app = initializeApp(firebaseConfig);
 
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function App2(props) {
+export default function App2() {
 
     const [files, setFiles] = useState([]);
     const maxUploadSize = 15000000;
+
+    const [playArray, setPlayArray] = useState([]);
+    const[uploadStatus, setUploadStatus] = useState('idle');
+
+    const [media, setMedia] = useState('song');
+
+    const[mostPlayedSong, setMostPlayedSong] = useState('');
+    const[numPlaysFMPS, setNumPlaysFMPS] = useState('');
+    const[mostPlayedArtist, setMostPlayedArtist] = useState('');
+    const[numPlaysFMPA, setNumPlaysFMPA] = useState('');
+    const[percentageNotSkipped, setPercentageNotSkipped] = useState('');
+
+    const[excludeSkipped, setExcludeSkipped] = useState(false);
+    const[caseSensitive, setCaseSensitive] = useState(false);
+    const[startDate, setStartDate] = useState('2006-04-22');
+    const[endDate, setEndDate] = useState('3025-09-23');
+
+    // sigh
+    const [input, setInput] = useState('');
+
+    // saved my life
+    useEffect(() => {
+        generateSummary();
+    }, [excludeSkipped, caseSensitive, startDate, endDate]);
 
     // from a video i watched
     function handleFileChange(event) {
@@ -42,30 +67,33 @@ export default function App2(props) {
         }
         setFiles(revisedFiles);
     }
-
-    const [playArrayArray, setPlayArrayArray] = useState([]);
-    const[uploadStatus, setUploadStatus] = useState('idle');
     
-    async function handleFileUpload(fileArray) {
-
-        console.log('handling file upload...');
-
+    // don't bother with a nested array
+    async function handleFileUpload() {
         setUploadStatus('uploading');
-        for (let i = 0; i < fileArray.length; i++) {
-            const playArray = await parseJsonFile(fileArray[i]);
-            if (playArray === undefined) {
+        for (let i = 0; i < files.length; i++) {
+            const currPlayArray = await parseJsonFile(files[i]);
+
+            if (currPlayArray === undefined) {
                 return;
             }
-            setPlayArrayArray(playArrayArray.push(playArray));
+
+            if (Array.isArray(currPlayArray)) {
+                for (let j = 0; j < currPlayArray.length; j++) {
+                    setPlayArray(playArray.push(currPlayArray[j]));
+                }
+            } else {
+                setPlayArray(playArray.push(currPlayArray));
+            }
         }
 
-        console.log(playArrayArray);
-        console.log(playArrayArray.length);
+        // create a shallow copy of the current play array and uhhh yeah? sure?
+        let playArrayCopy = playArray.slice();
+        setPlayArray(playArrayCopy);
 
         setUploadStatus('success');
-        // page changes now
 
-        console.log(playArrayArray);
+        generateSummary();
     }
 
     // de stack overflow
@@ -86,16 +114,147 @@ export default function App2(props) {
         }
     }
 
-    const [media, setMedia] = useState('song');
+    function generateSummary() {
+        findMostPlayedSong();
+        findMostPlayedArtist();
+        findPercentageNotSkipped();
+    }
 
-    function setMediaTest(mediaType) {
-        setMedia(mediaType);
-        console.log(mediaType);
-        console.log(playArrayArray);
+    // this algorithm is very clunky, it can probably be done with a single for-loop
+    function findMostPlayedSong() {
+        let songToNumPlays = new Map();
+
+        for (let i = 0; i < playArray.length; i++) {
+            let currSong = playArray[i].master_metadata_track_name;
+
+            let reasonEnd = playArray[i].reason_end;
+
+            if (!excludeSkipped || (excludeSkipped && reasonEnd === 'trackdone')) {
+
+                let ts = playArray[i].ts;
+
+                if (ts > startDate && ts < endDate) {
+                    if (!songToNumPlays.has(currSong)) {
+                        songToNumPlays.set(currSong, 0);
+                    }
+                    let currNumPlays = songToNumPlays.get(currSong);
+                    songToNumPlays.set(currSong, currNumPlays + 1);
+                }
+            }
+        }
+
+        let currMostPlayedSong = '';
+        let currMostNumPlays = -1;
+
+        for (const [song, numPlays] of songToNumPlays) {
+            if (numPlays > currMostNumPlays) {
+                currMostPlayedSong = song;
+                currMostNumPlays = numPlays;
+            }
+        }
+
+        if (currMostNumPlays === -1) {
+            currMostPlayedSong = 'N/A';
+            currMostNumPlays = 0;
+        }
+
+        setMostPlayedSong(currMostPlayedSong);
+        setNumPlaysFMPS(currMostNumPlays);
+    }
+
+    function findMostPlayedArtist() {
+        let artistToNumPlays = new Map();
+
+        for (let i = 0; i < playArray.length; i++) {
+            let currArtist = playArray[i].master_metadata_album_artist_name;
+
+            let reasonEnd = playArray[i].reason_end;
+
+            if (!excludeSkipped || (excludeSkipped && reasonEnd === 'trackdone')) {
+
+                let ts = playArray[i].ts;
+
+                if (ts > startDate && ts < endDate) {
+                    if (!artistToNumPlays.has(currArtist)) {
+                        artistToNumPlays.set(currArtist, 0);
+                    }
+                    let currNumPlays = artistToNumPlays.get(currArtist);
+                    artistToNumPlays.set(currArtist, currNumPlays + 1);
+                }
+            }
+        }
+
+        let currMostPlayedArtist = '';
+        let currMostNumPlays = -1;
+
+        for (const [artist, numPlays] of artistToNumPlays) {
+            if (numPlays > currMostNumPlays) {
+                currMostPlayedArtist = artist;
+                currMostNumPlays = numPlays;
+            }
+        }
+
+        if (currMostNumPlays === -1) {
+            currMostPlayedArtist = 'N/A';
+            currMostNumPlays = 0;
+        }
+
+        setMostPlayedArtist(currMostPlayedArtist);
+        setNumPlaysFMPA(currMostNumPlays);
+    }
+
+    function findPercentageNotSkipped() {
+        let numNotSkipped = 0;
+        let numTotal = 0;
+
+        for (let i = 0; i < playArray.length; i++) {
+            let ts = playArray[i].ts;
+            if (ts > startDate && ts < endDate) {
+                numTotal++;
+                let reasonEnd = playArray[i].reason_end;
+                if (reasonEnd === 'trackdone') {
+                    numNotSkipped++;
+                }
+            }
+        }
+
+        // avoid dividing by 0
+        if (numTotal === 0) {
+            numTotal = 1;
+        }
+
+        let percentage = 1.0 * (numNotSkipped / numTotal) * 100
+        let roundedPercentage = Math.round((percentage + Number.EPSILON) * 100) / 100;
+        setPercentageNotSkipped(roundedPercentage);
+    }
+
+    function updateSettings() {
+        setExcludeSkipped(document.getElementById('option1').checked);
+        setCaseSensitive(document.getElementById('option2').checked);
+
+        if (document.getElementById('startDate').value !== '') {
+
+            setStartDate(document.getElementById('startDate').value + '');
+
+            console.log(document.getElementById('startDate').value + '');
+
+        }
+
+        if (document.getElementById('endDate').value !== '') {
+            
+            setEndDate(document.getElementById('endDate').value + '');
+
+            console.log(document.getElementById('endDate').value + '');
+
+        }
+
+        // sure...
+        // generateSummary();
     }
 
     return (
-        <body className="features">
+        <>
+
             {uploadStatus !== 'success' && (
                 <>
 
@@ -200,6 +359,8 @@ export default function App2(props) {
                 </>
             )}
 
+            {/* // // // // // // // // // // */}
+
             {uploadStatus === 'success' && (
 
                 <>
@@ -218,7 +379,7 @@ export default function App2(props) {
                         <label for="song">
                             <div className={media === 'song' ? 'checkedDiv' : 'radioDiv'}>
                                 <input type="radio" id="song" name="analyze" value="songListeningHistory"
-                                    className="checkOrRadio" onChange={() => setMediaTest('song')}
+                                    className="checkOrRadio" onChange={() => setMedia('song')}
                                     checked={media === 'song'}></input>
                                 Analyze song listening history
                             </div>
@@ -226,7 +387,7 @@ export default function App2(props) {
                         <label for="podcast">
                             <div className={media === 'podcast' ? 'checkedDivMid' : 'radioDivMid'}>
                                 <input type="radio" id="podcast" name="analyze" value="pCastListeningHistory" 
-                                    className="checkOrRadio" onChange={() => setMediaTest('podcast')} 
+                                    className="checkOrRadio" onChange={() => setMedia('podcast')} 
                                     checked={media === 'podcast'}></input>
                                 Analyze podcast listening history
                             </div>
@@ -234,7 +395,7 @@ export default function App2(props) {
                         <label for="audiobook">
                             <div className={media === 'audiobook' ? 'checkedDiv' : 'radioDiv'}>
                                 <input type="radio" id="audiobook" name="analyze" value="aBookListeningHistory" 
-                                    className="checkOrRadio" onChange={() => setMediaTest('audiobook')} 
+                                    className="checkOrRadio" onChange={() => setMedia('audiobook')} 
                                     checked={media === 'audiobook'}></input>
                                 Analyze audiobook listening history
                             </div>
@@ -249,8 +410,8 @@ export default function App2(props) {
                             <h2 className="h2settings">Settings</h2>
                 
                             <div className="settingsDiv">
-                                <input type="checkbox" id="option1" name="option1" value="includeSkippedPlays" className="checkOrRadio"></input>
-                                <label for="option1" className="settingsLabel">Include skipped plays</label>
+                                <input type="checkbox" id="option1" name="option1" value="excludeSkippedPlays" className="checkOrRadio"></input>
+                                <label for="option1" className="settingsLabel">Exclude skipped plays</label>
                             </div>
                             <div className="settingsDiv">
                                 <input type="checkbox" id="option2" name="option2" value="caseSensitive" className="checkOrRadio"></input>
@@ -266,7 +427,7 @@ export default function App2(props) {
                                 <input type="date" id="endDate" name="endDate" className="dateButton"></input>
                             </div>
                             <div className="updateButtonDiv">
-                                <button className="updateButton">
+                                <button className="updateButton" onClick={() => updateSettings()}>
                                     Update Settings
                                 </button>
                             </div>
@@ -279,23 +440,23 @@ export default function App2(props) {
                             {media === 'song' && (
                                 <>
                                     <ul className="bodyList">
-                                        <li>Your most-played song & how many plays: <em>{playArrayArray.length}</em></li>
-                                        <li>Your most-played artist & how many artists: <em>{playArrayArray + 100}</em></li>
-                                        <li>Percentage skipped: <em>Stuff</em></li>
+                                        <li>Your most-played song & how many plays: <em>{mostPlayedSong} ({numPlaysFMPS} plays)</em></li>
+                                        <li>Your most-played artist & how many plays: <em>{mostPlayedArtist} ({numPlaysFMPA} plays)</em></li>
+                                        <li>Percentage played until completion: <em>{percentageNotSkipped}%</em></li>
                                     </ul>
 
                                     <h2>Song-specific tools</h2>
 
                                     <ul className="bodyList">
-                                        <li>Find the number of plays for a song with a particular title: <input type="text" className="bodyInput"></input></li>
-                                        <li>Displaying your top <input type="text" className="bodyInput"></input> most played songs</li>
+                                        <li>Find the number of plays for a song with a particular title: &nbsp; <input type="text" className="bodyInput"></input></li>
+                                        <li>Displaying your top &nbsp; <input type="text" className="bodyInput"></input> &nbsp; most played songs</li>
                                     </ul>
 
                                     <h2>Artist-specific tools</h2>
 
                                     <ul className="bodyList">
-                                        <li>Find the number of plays for songs with a particular artist: <input type="text" className="bodyInput"></input></li>
-                                        <li>Displaying your top <input type="text" className="bodyInput"></input> most played artists</li>
+                                        <li>Find the number of plays for songs with a particular artist: &nbsp; <input type="text" className="bodyInput"></input></li>
+                                        <li>Displaying your top &nbsp; <input type="text" className="bodyInput"></input> &nbsp; most played artists</li>
                                     </ul>
                                 </>
                             )}
@@ -345,6 +506,6 @@ export default function App2(props) {
                 </>
             )}
             
-        </body>
+        </>
     );
 }
