@@ -1,10 +1,10 @@
-// copied from william feng
+// a special thank you to William Feng
 
-// $ npm install react-router-dom
+// $ npm install react-router-dom ... i guess
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 
-// will need to import "initialize app" ... for fire base
+// initialize app for firebase?
 
 import App2 from './App2.jsx';
 import './style.css';

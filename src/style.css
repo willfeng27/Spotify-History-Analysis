@@ -1,5 +1,7 @@
 /* pasted from project-draft */
 
+/* this was organized before, now it's a complete mess. SAD! */
+
 /* ELEMENTS */
 
 a {
@@ -83,6 +85,23 @@ footer {
     font: 0.75em Helvetica;
     margin-bottom: 3em;
     text-align: left;
+}
+
+.topDetails[open] summary::after {
+    content: attr(data-open);
+    font-weight: bold;
+}
+
+.topDetails:not([open]) summary::after {
+    content: attr(data-close);
+    font-weight: bold;
+}
+
+.topDetails {
+    font: 0.75em Helvetica;
+    margin-bottom: 3em;
+    margin-top: 0.75em;
+    text-align: center;
 }
 
 .step {
@@ -405,8 +424,32 @@ footer {
     justify-content: center;
 }
 
-.bodyInput {
-    width: 50px;
+.bodyInputString {
+    width: 150px;
+}
+
+.bodyInputInt {
+    width: 35px;
+}
+
+.searchGo {
+    background-color: #1DB954;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.65em;
+    font-weight: bold;
+
+    margin-left: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+
+    padding: 0.4em;
+    transition-duration: 0.4s;
+}
+
+.searchGo:hover {
+    background-color: #3DEA79; /* Green */
 }
 
 .fileManagement {
@@ -492,4 +535,15 @@ footer {
 
 .uploadFileButton {
     display: none;
+}
+
+.integerMessage {
+    color: red;
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+.youHavePlayed {
+    margin-top: 0.5em;
+    margin-bottom: 0.75em;
 }
