@@ -183,6 +183,7 @@ export default function App2() {
     }
 
     // when the second "page" loads
+    // idea: add an "earliest play" and "most recent play" feature...
     function generateSummary() {
         findMostPlayedSong();
         findMostPlayedArtist();
@@ -336,7 +337,7 @@ export default function App2() {
         setPercentageNotSkipped(roundedPercentage);
     }
 
-    // TODO: display a message telling them to update the settings... also, date stuff is weird
+    // date stuff is weird
     function updateSettings() {
         setExcludeSkipped(document.getElementById('option1').checked);
         setCaseInsensitive(document.getElementById('option2').checked);
@@ -670,22 +671,28 @@ export default function App2() {
                             </div>
 
                             <div className="settingsDiv">
-                                <label for="startDate" className="settingsLabel">Starting date:</label>
+                                <label for="startDate" className="settingsLabel">Starting date: &nbsp; </label>
                                 <input type="date" id="startDate" name="startDate" className="dateButton"></input>
                             </div>
 
                             <div className="settingsDiv">
-                                <label for="endDate" className="settingsLabel">Ending date:</label>
+                                <label for="endDate" className="settingsLabel">Ending date: &nbsp; </label>
                                 <br></br>
                                 <input type="date" id="endDate" name="endDate" className="dateButton"></input>
                             </div>
 
-                            {/* TODO: change formatting when user needs to UPDATE the SETTINGS !!! */}
+                            {/* too much work . . . */}
                             <div className="updateButtonDiv">
                                 <button className="updateButton" onClick={() => updateSettings()}>
                                     Update Settings
                                 </button>
+
                             </div>
+
+                            {/* i think state is necessary BYE */}
+                            {/* {(document.getElementById('option1') !== null && document.getElementById('option1').checked) && (
+                                <p>STUFF!!!</p>
+                            )} */}
 
                         </div>
 

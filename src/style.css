@@ -1,7 +1,4 @@
-/* pasted from project-draft */
-
 /* this was organized before, now it's a complete mess. SAD! */
-
 /* ELEMENTS */
 
 a {
@@ -305,6 +302,10 @@ footer {
 }
 
 .radioDiv:hover {
+    background: grey;
+}
+
+.radioDivMid:hover {
     background: grey;
 }
 
